@@ -41,6 +41,28 @@ int main(int argc, const char * argv[]) {
     printf("%p\n",&a[0]);
     
     
+    std::cout << "----------------" << std::endl;
+    std::cout << "delete 释放内存:" << std::endl;
     
+    //只有动态分配的内存，delete 才去释放内存。
+    //静态分配内存是在编译的时候去分配，一般在栈中
+    
+    int * u = new int(8);
+    delete u;
+    std::cout << *u << std::endl;
+    
+    int * u2;
+    u2 = u;
+    delete u2;
+    std::cout << *u2 << std::endl;
+
+    float * array  = new float[3];
+    array[0] = 3.4;
+    std::cout << array[0] << std::endl;
+    
+    delete [] array;
+    
+    std::cout << array[0] << std::endl;
+
     return 0;
 }
